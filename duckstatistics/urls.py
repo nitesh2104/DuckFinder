@@ -16,7 +16,8 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from duckstatistics.views import MainView
+
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url('', include('duckstatistics.urls'))
+    url('main', MainView.as_view())
 ]
