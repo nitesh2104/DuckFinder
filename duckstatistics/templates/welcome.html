@@ -4,12 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Welcome</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 <body>
-<h1>Welcomeeee</h1>
-{% for i in event_data %}
-    {{ i.id }}
-{% endfor %}
-
+<h1>Welcome to Duck Statistics</h1>
+<table>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Country</th>
+        <th>Park Name</th>
+        <th># of Ducks</th>
+        <th>Food Fed</th>
+        <th>Food Type</th>
+        <th>Time Fed</th>
+        <th>Fed Amount</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        {% for data in event_data %}
+            <td>{{ forloop.counter }}</td>
+            <td>{{ data.location_id.country }}</td>
+            <td>{{ data.location_id.park_name }}</td>
+            <td>{{ data.number_of_ducks }}</td>
+            <td>{{ data.food_data_id.food_name }}</td>
+            <td>{{ data.food_data_id.food_type }}</td>
+            <td>{{ data.time_fed }}</td>
+            <td>{{ data.food_amount }}</td>
+        {% endfor %}
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
