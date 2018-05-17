@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <title>Welcome</title>
     <link rel="stylesheet" href="{% static 'main.css' %}">
+    <script type="application/javascript" src="{% static 'main.js' %}"></script>
+    <script type="application/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 <h1>Welcome to Duck Statistics</h1>
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Add Duck Data</button>
 <table>
     <thead>
     <tr>
@@ -22,7 +25,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
+    <tr class="table_tbody_row">
         {% for data in event_data %}
             <td>{{ forloop.counter }}</td>
             <td>{{ data.location_id.country }}</td>
@@ -36,5 +39,44 @@
     </tr>
     </tbody>
 </table>
+
+<div id="id01" class="modal">
+
+    <div class="modal-content animate">
+        <div class="imgcontainer">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+{#            <img src="{% static 'duck.jpg' %}" alt="Avatar" class="avatar">#}
+        </div>
+
+        <div class="container">
+            <input type="text" placeholder="Country Name" name="country" required>
+            <input type="text" placeholder="Park Name" name="park" required>
+            <input type="number" placeholder="Number Of Ducks Fed" name="ducks_fed" required>
+            <input type="text" placeholder="Food Fed" name="food_name" required>
+            <input type="text" placeholder="Food Type" name="food_type" required>
+            <input type="number" placeholder="Time Fed (Enter Minutes)" name="time_fed" required>
+            <input type="number" placeholder="Fed Amount (in grams)" name="fed_amount" required>
+        </div>
+
+        <div class="container modal_container_bottom">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
+                Cancel
+            </button>
+            <button type="button" onclick="submit_data()">Create</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
 </body>
 </html>

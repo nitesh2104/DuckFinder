@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from datetime import timedelta
+
 from django.db import models
 
 
@@ -36,7 +38,7 @@ class EventData(models.Model):
     food_data_id and are expressed as ForeignKey
     """
     number_of_ducks = models.IntegerField(default=0, blank=True, null=True)
-    time_fed = models.DateTimeField(auto_now=True)
+    time_fed = models.IntegerField(default=0, blank=True, null=True)
     food_amount = models.IntegerField(blank=True, null=True)
     location_id = models.ForeignKey(Location, on_delete=models.CASCADE)
     food_data_id = models.ForeignKey(FoodData, on_delete=models.CASCADE)

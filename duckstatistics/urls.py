@@ -19,5 +19,5 @@ from django.contrib import admin
 from duckstatistics.views import MainView
 
 urlpatterns = [
-    url('main', MainView.as_view())
+    url('main', MainView.as_view()),
 ]

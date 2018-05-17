@@ -16,7 +16,11 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from duckstatistics.views import create_entry
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url('', include('duckstatistics.urls'))
+    url('', include('duckstatistics.urls')),
+    url('post/create_entry/', create_entry, name="submit_data")
+
 ]
