@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'duckstatistics',
+    'django_crontab',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -111,6 +112,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+
+CRONJOBS = [
+    ('0 12 * * *', 'duckstatistics.cron.my_scheduled_job')
+]
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [

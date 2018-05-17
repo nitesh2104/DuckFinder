@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import pdb
+
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
@@ -54,6 +56,7 @@ def create_entry(request):
     food_type = request.POST.get("food_type")
     time_fed = request.POST.get("time_fed")
     fed_amount = request.POST.get("fed_amount")
+    repeat = True if "true" in request.POST.get("repeat") else False
 
     location_object, _ = Location.objects.get_or_create(country=country_name, park_name=park_name)
     location_object.save()
@@ -64,6 +67,7 @@ def create_entry(request):
     event_data_object = EventData(number_of_ducks=number_of_ducks,
                                   time_fed=time_fed,
                                   food_amount=fed_amount,
+                                  repeat_entry=repeat,
                                   location_id=location_object,
                                   food_data_id=food_data_object)
     event_data_object.save()

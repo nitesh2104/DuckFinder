@@ -40,5 +40,6 @@ class EventData(models.Model):
     number_of_ducks = models.IntegerField(default=0, blank=True, null=True)
     time_fed = models.IntegerField(default=0, blank=True, null=True)
     food_amount = models.IntegerField(blank=True, null=True)
+    repeat_entry = models.BooleanField(default=False)
     location_id = models.ForeignKey(Location, on_delete=models.CASCADE)
     food_data_id = models.ForeignKey(FoodData, on_delete=models.CASCADE)

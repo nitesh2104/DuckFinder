@@ -5,7 +5,8 @@ $(document).ready(function () {
      * 2. Error Validation Checking for values
      * */
     $('#main_table').DataTable({
-        "pageLength": 50
+        "pageLength": 50,
+        "order": [[0, "desc"]]
     });
 
 });
@@ -40,14 +41,14 @@ function validate_records() {
 function add_table_row(response) {
     $(".table_tbody_row:first").before(
         "<tr>" +
-            "<td>" + "#" + "</td>" +
-            "<td>" + response['country_name'] +"</td>" +
-            "<td>" + response['park_name'] +"</td>" +
-            "<td>" + response['number_of_ducks'] +"</td>" +
-            "<td>" + response['time_fed'] +"</td>" +
-            "<td>" + response['food_amount'] +"</td>" +
-            "<td>" + response['food_type'] +"</td>" +
-            "<td>" + response['food_name'] +"</td>" +
+        "<td>" + "#" + "</td>" +
+        "<td>" + response['country_name'] + "</td>" +
+        "<td>" + response['park_name'] + "</td>" +
+        "<td>" + response['number_of_ducks'] + "</td>" +
+        "<td>" + response['time_fed'] + "</td>" +
+        "<td>" + response['food_amount'] + "</td>" +
+        "<td>" + response['food_type'] + "</td>" +
+        "<td>" + response['food_name'] + "</td>" +
         "</tr>>"
     );
 }
@@ -70,6 +71,8 @@ function submit_data() {
     Object.food_type = $(".container input[name=food_type]").val();
     Object.time_fed = $(".container input[name=time_fed]").val();
     Object.fed_amount = $(".container input[name=fed_amount]").val();
+    Object.repeat = $(".container input[name=repeat]").is(":checked");
+
 
     if (validate_records() === true) {
         $.ajax({
