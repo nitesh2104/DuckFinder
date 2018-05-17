@@ -1,1 +1,1 @@
-web: gunicorn duckstatistics.wsgi
+web: gunicorn duckstatistics.wsgi:application --log-file -
