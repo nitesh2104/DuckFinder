@@ -1,1 +1,2 @@
-web: gunicorn duckstatistics.wsgi:application --log-file -
+web: waitress-serve --port=$PORT  DuckFinder.wsgi:application
+

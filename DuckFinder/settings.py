@@ -13,8 +13,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(PROJECT_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -25,7 +25,7 @@ SECRET_KEY = '_o4_)7ait259f#(nanzh)dy=dp6e(kx&5*-z6@l)h8if&f%a4o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -119,7 +119,7 @@ CRONJOBS = [
 ]
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'global_static')
+STATIC_ROOT = os.path.join(PROJECT_DIR, '../global_static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "duckstatistics/static")
 ]
