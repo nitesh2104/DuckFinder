@@ -4,7 +4,9 @@ $(document).ready(function () {
      * 1. Datatable loading plugin
      * 2. Error Validation Checking for values
      * */
-    $('#main_table').DataTable();
+    $('#main_table').DataTable({
+        "pageLength": 50
+    });
 
 });
 
@@ -19,9 +21,10 @@ function validate_records() {
             lis.push($(this).val());
         }
     });
-    if (lis.length === 7) {
+    if (lis.length === 8) {
         return true;
     }
+    console.log(lis.length);
     $(".container input").each(function () {
         if (!$(this).val()) {
             $(".error_" + $(this).attr("name")).show();
@@ -29,10 +32,24 @@ function validate_records() {
         }
         else {
             $(".error_" + $(this).attr("name")).hide();
-            $(this).css("border", " None");
 
         }
     });
+}
+
+function add_table_row(response) {
+    $(".table_tbody_row:first").before(
+        "<tr>" +
+            "<td>" + "#" + "</td>" +
+            "<td>" + response['country_name'] +"</td>" +
+            "<td>" + response['park_name'] +"</td>" +
+            "<td>" + response['number_of_ducks'] +"</td>" +
+            "<td>" + response['time_fed'] +"</td>" +
+            "<td>" + response['food_amount'] +"</td>" +
+            "<td>" + response['food_type'] +"</td>" +
+            "<td>" + response['food_name'] +"</td>" +
+        "</tr>>"
+    );
 }
 
 function submit_data() {
@@ -53,13 +70,15 @@ function submit_data() {
     Object.food_type = $(".container input[name=food_type]").val();
     Object.time_fed = $(".container input[name=time_fed]").val();
     Object.fed_amount = $(".container input[name=fed_amount]").val();
+
     if (validate_records() === true) {
         $.ajax({
             type: "POST",
             url: "post/create_entry/",
             data: Object,
             success: function (response) {
-                console.log(response);
+                add_table_row(response);
+                $("#id01").fadeOut();
             }
         });
     }

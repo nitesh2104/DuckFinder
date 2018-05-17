@@ -22,6 +22,17 @@ class MainView(TemplateView):
         return context
 
 
+def prepare_json_entry(location_object, food_data_object, event_data_object):
+    return {'country_name': location_object.country,
+            'park_name': location_object.park_name,
+            'number_of_ducks': event_data_object.number_of_ducks,
+            'time_fed': event_data_object.time_fed,
+            'food_amount': event_data_object.food_amount,
+            'food_type': food_data_object.food_type,
+            'food_name': food_data_object.food_name
+            }
+
+
 @csrf_exempt
 def create_entry(request):
     """
@@ -57,6 +68,6 @@ def create_entry(request):
                                   food_data_id=food_data_object)
     event_data_object.save()
     if event_data_object:
-        return JsonResponse({'id': event_data_object.id})
+        return JsonResponse(prepare_json_entry(location_object, food_data_object, event_data_object))
     else:
         return HttpResponse("Can't make entry. Please check values", status=404)

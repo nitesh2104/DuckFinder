@@ -1,15 +1,41 @@
-table th, td {
-    border: 1px solid black;
-    text-align: center;
+html {
+    background: url(white.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
-table {
+.maintable th, .maintable td {
+    border: 1px solid grey;
+    text-align: center;
+    line-height: 1em;
+}
+
+.maintable {
     width: 98%;
     margin-left: 1%;
 }
 
+.maintable th{
+    background-color: #202e78;
+    color: #fffccf;
+}
+.modal_table {
+    width: 100%;
+    border: none;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.label_prop {
+    background-color: #5c6ac4;
+    padding: 12px 20px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-right: 0;
 }
 
 /* Full-width input fields */
@@ -19,10 +45,13 @@ input[type=text], input[type=number] {
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    width: 50%;
 }
-.float_right{
+
+.float_right {
     float: right;
 }
+
 /* Set a style for all buttons */
 button {
     background-color: #5c6ac4;
@@ -49,8 +78,12 @@ button:hover {
 /* Center the image and position the close button */
 .imgcontainer {
     text-align: center;
-    margin: 24px 0 12px 0;
+    margin: 0 0 12px 0;
+    padding-top: 1em;
+    padding-bottom: 1em;
     position: relative;
+    background-color: #ffdb0094;
+    border: 3px solid #FFC107;
 }
 
 img.avatar {
@@ -144,23 +177,50 @@ span.psw {
 
 /*Modal Container*/
 .modal_container_bottom {
-    background-color:#f1f1f1;
+    background-color: #f1f1f1;
 }
 
-.error{
-	display: none;
-	margin-left: 10px;
+.error {
+    display: none;
+    margin-left: 10px;
 }
 
-.error_show{
-	color: red;
-	margin-left: 10px;
+.error_show {
+    color: red;
+    margin-left: 10px;
 }
 
-input.invalid, textarea.invalid{
-	border: 2px solid red;
+input.invalid, textarea.invalid {
+    border: 2px solid red;
 }
 
-input.valid, textarea.valid{
-	border: 2px solid green;
+input.valid, textarea.valid {
+    border: 2px solid green;
+}
+
+input[type=checkbox] {
+    /* Double-sized Checkboxes */
+    -ms-transform: scale(2); /* IE */
+    -moz-transform: scale(2); /* FF */
+    -webkit-transform: scale(2); /* Safari and Chrome */
+    -o-transform: scale(2); /* Opera */
+    padding: 10px;
+}
+
+.checkboxtext {
+    /* Checkbox text */
+    font-size: 90%;
+    display: inline;
+    color: grey;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.add_button {
+    width: auto;
+    float: right;
+    padding: 15px 20px;
+    border-radius: 50%;
 }

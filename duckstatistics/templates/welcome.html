@@ -13,8 +13,8 @@
 </head>
 <body>
 <h1>Welcome to Duck Statistics</h1>
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Add Duck Data</button>
-<table id="main_table">
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="add_button">+</button>
+<table id="main_table" class="maintable">
     <thead>
     <tr>
         <th>#</th>
@@ -48,24 +48,62 @@
     <div class="modal-content animate">
         <div class="imgcontainer">
             <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-            {#            <img src="{% static 'duck.jpg' %}" alt="Avatar" class="avatar">#}
+                        <img src="{% static 'duck.jpg' %}" alt="Avatar" class="avatar">
         </div>
-
+        <h2 class="center-align">Lets Enter Duck Feeding Time!</h2>
         <form class="container">
-            <input type="text" placeholder="Country Name" name="country" required><span class="error_country"
-                                                                                        hidden>*</span>
-            <input type="text" placeholder="Park Name" name="park" required><span class="error_park" hidden>*</span>
-            <input type="number" placeholder="Number Of Ducks Fed" name="ducks_fed" required><span
-                class="error_ducks_fed" hidden>*</span>
-            <input type="text" placeholder="Food Fed" name="food_name" required><span class="error_food_name"
-                                                                                      hidden>*</span>
-            <input type="text" placeholder="Food Type" name="food_type" required><span class="error_food_type"
-                                                                                       hidden>*</span>
-            <input type="number" placeholder="Time Fed (Enter Minutes)" name="time_fed" required><span
-                class="error_time_fed" hidden>*</span>
-            <input type="number" placeholder="Fed Amount (in grams)" name="fed_amount" required><span
-                class="error_fed_amount" hidden>*</span>
-            <input type="checkbox" placeholder="Repeat Feeding the Ducks?" name="repeat"> Repeat Feeding Everyday
+            <table class="modal_table">
+                <tr>
+                    <td>
+                        <label for="country" class="label_prop">Country</label>
+                        <input type="text" placeholder="Country Name" name="country" required>
+                        <span class="error_country" hidden>*</span>
+                    </td>
+                    <td>
+                        <label for="food_type" class="label_prop">Food Type</label>
+                        <input type="text" placeholder="Food Type" name="food_type" required><span
+                            class="error_food_type"
+                            hidden>*</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="park" class="label_prop">Park Name</label>
+                        <input type="text" placeholder="Park Name" name="park" required><span class="error_park" hidden>*</span>
+                    </td>
+                    <td>
+                        <label for="time_fed" class="label_prop">Time Fed</label>
+                        <input type="number" placeholder="Time Fed (Enter Minutes)" name="time_fed" required><span
+                            class="error_time_fed" hidden>*</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="ducks_fed" class="label_prop">Ducks Fed</label>
+                        <input type="number" placeholder="Number Of Ducks Fed" name="ducks_fed" required><span
+                            class="error_ducks_fed" hidden>*</span>
+                    </td>
+                    <td>
+                        <label for="fed_amount" class="label_prop">Fed Amount</label>
+                        <input type="number" placeholder="Fed Amount (in grams)" name="fed_amount" required><span
+                            class="error_fed_amount" hidden>*</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="food_name" class="label_prop">Food Name</label>
+                        <input type="text" placeholder="Food Fed" name="food_name" required><span
+                            class="error_food_name"
+                            hidden>*</span>
+                    </td>
+                    <td>
+                        <input type="checkbox" placeholder="Repeat Feeding the Ducks?" name="repeat"> <span
+                            class="checkboxtext">Repeat Feeding Everyday</span>
+                    </td>
+                </tr>
+            </table>
+
+
         </form>
 
         <div class="container modal_container_bottom">
