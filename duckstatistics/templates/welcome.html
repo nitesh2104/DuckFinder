@@ -65,13 +65,14 @@
                 class="error_time_fed" hidden>*</span>
             <input type="number" placeholder="Fed Amount (in grams)" name="fed_amount" required><span
                 class="error_fed_amount" hidden>*</span>
+            <input type="checkbox" placeholder="Repeat Feeding the Ducks?" name="repeat"> Repeat Feeding Everyday
         </form>
 
         <div class="container modal_container_bottom">
             <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
                 Cancel
             </button>
-            <button type="button" onclick="submit_data()">Create</button>
+            <button type="button" class="create_button float_right" onclick="submit_data()">Create</button>
         </div>
     </div>
 </div>

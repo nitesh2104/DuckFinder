@@ -10,6 +10,9 @@ $(document).ready(function () {
 
 
 function validate_records() {
+    /**
+     * This method checks and validates the missing inputs.
+     * */
     var lis = [];
     $(".container input").each(function () {
         if ($(this).val()) {

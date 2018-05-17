@@ -13,23 +13,24 @@ body {
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+input[type=text], input[type=number] {
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
-
+.float_right{
+    float: right;
+}
 /* Set a style for all buttons */
 button {
     background-color: #5c6ac4;
     color: #fff;
-    padding: 14px 20px;
+    padding: 10px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
     transition: 150ms ease-in-out;
 }
 
