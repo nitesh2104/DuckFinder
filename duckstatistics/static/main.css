@@ -224,3 +224,11 @@ input[type=checkbox] {
     padding: 15px 20px;
     border-radius: 50%;
 }
+.margin_left_80 {
+    margin-left: 80%;
+}
+
+.logo_main {
+    width: 1%;
+    margin-right: 5px;
+}

@@ -3,128 +3,26 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome</title>
-    <link rel="stylesheet" href="{% static 'main.css' %}">
-    <script type="application/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
-    <script type="text/javascript" charset="utf8"
-            src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
-    <script type="application/javascript" src="{% static 'main.js' %}"></script>
+    <title>Welcome to Duck Statistics</title>
+    <link rel="stylesheet" href="{% static "css/welcome.css" %}">
+    {% include "imports.html" %}
 </head>
+
 <body>
-<h1>Welcome to Duck Statistics</h1>
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="add_button">+</button>
-<table id="main_table" class="maintable">
-    <thead>
-    <tr>
-        <th>#</th>
-        <th>Country</th>
-        <th>Park Name</th>
-        <th># of Ducks</th>
-        <th>Food Fed</th>
-        <th>Food Type</th>
-        <th>Time Fed</th>
-        <th>Fed Amount</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for data in event_data %}
-        <tr class="table_tbody_row">
-            <td>{{ forloop.counter }}</td>
-            <td>{{ data.location_id.country }}</td>
-            <td>{{ data.location_id.park_name }}</td>
-            <td>{{ data.number_of_ducks }}</td>
-            <td>{{ data.food_data_id.food_name }}</td>
-            <td>{{ data.food_data_id.food_type }}</td>
-            <td>{{ data.time_fed }}</td>
-            <td>{{ data.food_amount }}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-
-<div id="id01" class="modal">
-
-    <div class="modal-content animate">
-        <div class="imgcontainer">
-            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                        <img src="{% static 'duck.jpg' %}" alt="Avatar" class="avatar">
-        </div>
-        <h2 class="center-align">Lets Enter Duck Feeding Time!</h2>
-        <form class="container">
-            <table class="modal_table">
-                <tr>
-                    <td>
-                        <label for="country" class="label_prop">Country</label>
-                        <input type="text" placeholder="Country Name" name="country" required>
-                        <span class="error_country" hidden>*</span>
-                    </td>
-                    <td>
-                        <label for="food_type" class="label_prop">Food Type</label>
-                        <input type="text" placeholder="Food Type" name="food_type" required><span
-                            class="error_food_type"
-                            hidden>*</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="park" class="label_prop">Park Name</label>
-                        <input type="text" placeholder="Park Name" name="park" required><span class="error_park" hidden>*</span>
-                    </td>
-                    <td>
-                        <label for="time_fed" class="label_prop">Time Fed</label>
-                        <input type="number" placeholder="Time Fed (Enter Minutes)" name="time_fed" required><span
-                            class="error_time_fed" hidden>*</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="ducks_fed" class="label_prop">Ducks Fed</label>
-                        <input type="number" placeholder="Number Of Ducks Fed" name="ducks_fed" required><span
-                            class="error_ducks_fed" hidden>*</span>
-                    </td>
-                    <td>
-                        <label for="fed_amount" class="label_prop">Fed Amount</label>
-                        <input type="number" placeholder="Fed Amount (in grams)" name="fed_amount" required><span
-                            class="error_fed_amount" hidden>*</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label for="food_name" class="label_prop">Food Name</label>
-                        <input type="text" placeholder="Food Fed" name="food_name" required><span
-                            class="error_food_name"
-                            hidden>*</span>
-                    </td>
-                    <td>
-                        <input type="checkbox" placeholder="Repeat Feeding the Ducks?" name="repeat"> <span
-                            class="checkboxtext">Repeat Feeding Everyday</span>
-                    </td>
-                </tr>
-            </table>
-
-
-        </form>
-
-        <div class="container modal_container_bottom">
-            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">
-                Cancel
-            </button>
-            <button type="button" class="create_button float_right" onclick="submit_data()">Create</button>
-        </div>
-    </div>
+{% include 'navbar.html' %}
+<div class="fullscreen-bg">
+    <video loop muted autoplay class="fullscreen-bg__video">
+        <source src="{% static 'background2.webm' %}" type="video/webm" media="all and (max-width: 480px)">
+    </video>
 </div>
-
-<script>
-    // Get the modal
-    var modal = document.getElementById('id01');
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    }
-</script>
-
+<div class="container white width_50">
+    <h1>Welcome to Feeding Statistics</h1>
+    <p>Allowing people to see statistics for food fed to ducks</p>
+    <p>Click links below to view the statistics from all around the world</p>
+</div>
+<div class="align_center">
+    <a class="white hvr-pulse-grow" href="/main"><i class="fas fa-table">&emsp;</i>Statistics</a>
+    <a class="white hvr-pulse-grow" href="/analytics"><i class="fas fa-chart-pie">&emsp;</i>Analytics</a>
+</div>
 </body>
 </html>

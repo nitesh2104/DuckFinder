@@ -12,7 +12,7 @@ from duckstatistics.models import EventData, Location, FoodData
 
 
 class MainView(TemplateView):
-    template_name = "welcome.html"
+    template_name = "main.html"
     """
     This view will be rendered every time the page is requested from the
     browser. Also it will return the context data as a qeueryset along
