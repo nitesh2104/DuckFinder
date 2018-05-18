@@ -17,9 +17,10 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.views.generic import TemplateView
 
-from duckstatistics.views import MainView
+from duckstatistics.views import MainView, AnalyticsView
 
 urlpatterns = [
     url('^$', TemplateView.as_view(template_name="welcome.html")),
     url('main', MainView.as_view()),
+    url('analytics', AnalyticsView.as_view()),
 ]

@@ -1,5 +1,5 @@
 html {
-    background: url(white.jpg) no-repeat center center fixed;
+    background: url(../img/white.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -17,10 +17,11 @@ html {
     margin-left: 1%;
 }
 
-.maintable th{
+.maintable th {
     background-color: #202e78;
     color: #fffccf;
 }
+
 .modal_table {
     width: 100%;
     border: none;
@@ -178,6 +179,7 @@ span.psw {
 /*Modal Container*/
 .modal_container_bottom {
     background-color: #f1f1f1;
+    width: 100%;
 }
 
 .error {
@@ -223,12 +225,63 @@ input[type=checkbox] {
     float: right;
     padding: 15px 20px;
     border-radius: 50%;
+    margin: 1em;
 }
+
 .margin_left_80 {
     margin-left: 80%;
 }
 
 .logo_main {
-    width: 1%;
+    width: 10%;
     margin-right: 5px;
+}
+
+/* Pulse Grow */
+@-webkit-keyframes hvr-pulse-grow {
+    to {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+}
+
+@keyframes hvr-pulse-grow {
+    to {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+}
+
+.hvr-pulse-grow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.hvr-pulse-grow:hover, .hvr-pulse-grow:focus, .hvr-pulse-grow:active {
+    -webkit-animation-name: hvr-pulse-grow;
+    animation-name: hvr-pulse-grow;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 0;
+    border-radius: 0;
+    outline: 0;
+    max-height: 500px;
+    overflow: scroll;
+    width: 90% !important;
 }

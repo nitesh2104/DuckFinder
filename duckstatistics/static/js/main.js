@@ -5,7 +5,7 @@ $(document).ready(function () {
      * 2. Error Validation Checking for values
      * */
     $('#main_table').DataTable({
-        "pageLength": 50,
+        "pageLength": 10,
         "order": [[0, "desc"]]
     });
 

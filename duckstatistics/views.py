@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-import pdb
-
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
@@ -75,3 +73,7 @@ def create_entry(request):
         return JsonResponse(prepare_json_entry(location_object, food_data_object, event_data_object))
     else:
         return HttpResponse("Can't make entry. Please check values", status=404)
+
+
+class AnalyticsView(TemplateView):
+    template_name = 'analytics.html'
