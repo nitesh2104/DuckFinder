@@ -45,10 +45,10 @@ function add_table_row(response) {
         "<td>" + response['country_name'] + "</td>" +
         "<td>" + response['park_name'] + "</td>" +
         "<td>" + response['number_of_ducks'] + "</td>" +
+        "<td>" + response['food_name'] + "</td>" +
+        "<td>" + response['food_type'] + "</td>" +
         "<td>" + response['time_fed'] + "</td>" +
         "<td>" + response['food_amount'] + "</td>" +
-        "<td>" + response['food_type'] + "</td>" +
-        "<td>" + response['food_name'] + "</td>" +
         "</tr>>"
     );
 }
