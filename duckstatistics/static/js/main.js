@@ -77,7 +77,7 @@ function submit_data() {
     if (validate_records() === true) {
         $.ajax({
             type: "POST",
-            url: "post/create_entry/",
+            url: "/post/create_entry/",
             data: Object,
             success: function (response) {
                 add_table_row(response);

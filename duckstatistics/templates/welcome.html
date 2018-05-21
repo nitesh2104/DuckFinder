@@ -10,14 +10,10 @@
 
 <body>
 {% include 'navbar.html' %}
-<div class="fullscreen-bg">
-    <video loop muted autoplay class="fullscreen-bg__video">
-        <source src="{% static 'webm/background2.webm' %}" type="video/webm" media="all and (max-width: 480px)">
-    </video>
-</div>
+<img src="{% static "img/background.jpg" %}" id="bg" alt="">
 <div class="container white width_50">
-    <h1>Welcome to Feeding Statistics</h1>
-    <p>Allowing people to see statistics for food fed to ducks</p>
+    <h1>Welcome to Duck Feed Statistics</h1>
+    <p>Allowing people to see statistics of food fed to ducks</p>
     <p>Click links below to view the statistics from all around the world</p>
 </div>
 <div class="align_center">

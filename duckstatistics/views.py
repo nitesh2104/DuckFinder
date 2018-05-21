@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import json
+
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
@@ -77,3 +79,16 @@ def create_entry(request):
 
 class AnalyticsView(TemplateView):
     template_name = 'analytics.html'
+
+    def get_context_data(self, **kwargs):
+        country_list = []
+        ducks_count_list = []
+        for country_name in Location.objects.values('country').distinct():
+            if country_name.get("country") is not "":
+                country_list.append(country_name.get('country'))
+                ducks_count_list.append(sum([x.number_of_ducks for x in
+                                             EventData.objects.filter(
+                                                 location_id__country__icontains=country_name.get("country"))]))
+        context = {"countries": json.dumps(country_list),
+                   "count": json.dumps(ducks_count_list)}
+        return context
