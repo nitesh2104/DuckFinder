@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome to Duck Statistics</title>
+    <title>Welcome to Duck Feed Statistics</title>
     <link rel="stylesheet" href="{% static "css/welcome.css" %}">
     {% include "imports.html" %}
 </head>
@@ -11,14 +11,14 @@
 <body>
 {% include 'navbar.html' %}
 <img src="{% static "img/background.jpg" %}" id="bg" alt="">
-<div class="container white width_50">
-    <h1>Welcome to Duck Feed Statistics</h1>
-    <p>Allowing people to see statistics of food fed to ducks</p>
-    <p>Click links below to view the statistics from all around the world</p>
+<div class="container white">
+    <h3 class="intro-lead-in"> Welcome!</h3>
+    <h1 class="intro-heading">Duck Feed Statistics</h1>
+    <p class="intro-lead-in ">Allowing people see statistics of food fed to ducks</p>
 </div>
 <div class="align_center">
-    <a class="white hvr-pulse-grow" href="/main"><i class="fas fa-table">&emsp;</i>Statistics</a>
-    <a class="white hvr-pulse-grow" href="/analytics"><i class="fas fa-chart-pie">&emsp;</i>Analytics</a>
+    <a class="white intro_links" href="{% url 'main_page' %}"><i class="fas fa-table">&emsp;</i>Statistics</a>
+    <a class="white intro_links" href="{% url 'analytics' %}"><i class="fas fa-chart-pie">&emsp;</i>Analytics</a>
 </div>
 </body>
 </html>

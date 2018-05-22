@@ -21,6 +21,6 @@ from duckstatistics.views import MainView, AnalyticsView
 
 urlpatterns = [
     url('^$', TemplateView.as_view(template_name="welcome.html")),
-    url('main', MainView.as_view()),
-    url('analytics', AnalyticsView.as_view()),
+    url('main', MainView.as_view(), name='main_page'),
+    url('analytics', AnalyticsView.as_view(), name='analytics'),
 ]

@@ -81,6 +81,13 @@ class AnalyticsView(TemplateView):
     template_name = 'analytics.html'
 
     def get_context_data(self, **kwargs):
+        """
+        Method calls the queryset to return two lists.
+        1. List containing countries
+        2. List containing count of ducks in country
+        :param kwargs:
+        :return: dict
+        """
         country_list = []
         ducks_count_list = []
         for country_name in Location.objects.values('country').distinct():
