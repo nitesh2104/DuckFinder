@@ -1,16 +1,1 @@
-certifi==2018.4.16
-dj-database-url==0.5.0
-dj-static==0.0.6
-Django==2.2.6
-django-crontab==0.7.1
-django-heroku==0.3.1
-gunicorn==19.8.1
-pipenv==2018.5.18
-psycopg2==2.7.4
-python-decouple==3.1
-pytz==2018.4
-static3==0.7.0
-virtualenv==16.0.0
-virtualenv-clone==0.3.0
-waitress==1.1.0
-whitenoise==3.3.1
+
